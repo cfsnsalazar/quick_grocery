@@ -1,3 +1,5 @@
 <resources>
   <string name="app_name">Quick Grocery</string>
+    <string name="meal_schedule">Meal Schedule</string>
+  <string name="shopping_list">Shopping List</string>
 </resources>
