@@ -13,8 +13,9 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/widgetBackground"
             android:id="@+id/tbAppToolbar"
+            app:titleTextColor="?attr/colorPrimary"
             app:navigationIcon="@drawable/ic_menu"
             app:layout_scrollFlags="enterAlways"/>
 
