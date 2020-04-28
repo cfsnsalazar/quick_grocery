@@ -7,5 +7,6 @@
     <attr name="rippleBackground" format="reference"/>
     <attr name="drawerTextColor" format="reference"/>
     <attr name="drawerIconColor" format="reference"/>
+    <attr name="switchColor" format="reference"/>
     <attr name="colorAccent" format="color"/>
 </resources>

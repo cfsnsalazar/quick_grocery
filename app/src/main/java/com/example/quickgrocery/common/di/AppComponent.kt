@@ -1,17 +1,16 @@
 package com.example.quickgrocery.common.di
 
-import com.example.quickgrocery.common.ThemeDataSource
-import com.example.quickgrocery.common.activity.MainActivity
-import com.example.quickgrocery.common.viewModel.MainViewModel
+import com.example.quickgrocery.common.viewModel.BaseViewModel
 import dagger.Component
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
     AppModule::class
 ])
+
+@ExperimentalCoroutinesApi
 interface AppComponent {
-    fun inject(target: MainActivity)
-    fun inject(target: ThemeDataSource)
-    fun inject(target: MainViewModel)
+    fun inject(target: BaseViewModel)
 }
