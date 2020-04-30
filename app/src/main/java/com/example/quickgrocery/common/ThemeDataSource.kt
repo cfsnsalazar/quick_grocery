@@ -1,6 +1,7 @@
 package com.example.quickgrocery.common
 
 import android.content.SharedPreferences
+import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
@@ -19,7 +20,7 @@ class ThemeDataSource(
             val theme = sharedPreferences.getString(
                 PREFERENCE_KEY_THEME,
                 null
-            ) ?: Theme.LIGHT.name //Default theme is light
+            ) ?: Theme.SYSTEM.name
             channel.offer(Theme.valueOf(theme))
         }
     }

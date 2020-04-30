@@ -2,7 +2,11 @@ package com.example.quickgrocery.common.activity
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.core.view.GravityCompat
+import androidx.core.view.ViewCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.quickgrocery.R
 import com.example.quickgrocery.common.fragment.BaseFragment
 import com.example.quickgrocery.meals.activity.MealsActivity
@@ -30,7 +34,7 @@ abstract class BaseAuthenticatedActivity: BaseActivity(), NavigationView.OnNavig
     }
 
     private fun initMainFragment() {
-        supportFragmentManager.beginTransaction().add(R.id.flContent, getMainFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.flContent, getMainFragment()).commit()
     }
 
     override fun onResume() {
@@ -66,7 +70,11 @@ abstract class BaseAuthenticatedActivity: BaseActivity(), NavigationView.OnNavig
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        overridePendingTransition(0,0)
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
+        overridePendingTransition(0, 0)
     }
 }

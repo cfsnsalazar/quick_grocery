@@ -21,7 +21,7 @@ class MealsActivity : BaseAuthenticatedActivity() {
     companion object {
         fun getBaseIntent(caller: Context): Intent {
             return Intent(caller, MealsActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                flags = Intent.FLAG_ACTIVITY_NO_ANIMATION or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             }
         }
     }

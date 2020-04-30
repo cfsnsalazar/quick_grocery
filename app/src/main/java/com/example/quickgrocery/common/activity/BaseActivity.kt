@@ -27,45 +27,40 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected open fun initObservers() {
         viewModel.theme.observe(this, Observer { theme ->
-            when (theme) {
-                Theme.LIGHT -> {
-                    setTheme(AppCompatDelegate.MODE_NIGHT_NO, Theme.LIGHT)
-                }
-                Theme.DARK -> {
-                    setTheme(AppCompatDelegate.MODE_NIGHT_YES, Theme.DARK)
-                }
-                else -> Unit
+            if (AppCompatDelegate.getDefaultNightMode() == theme.appCompatDelegateValue && currentTheme != theme) {
+                recreate()
+            } else {
+                AppCompatDelegate.setDefaultNightMode(theme.appCompatDelegateValue)
             }
         })
     }
 
-    private fun setTheme(delegateNightMode: Int ,theme: Theme) {
-        if (AppCompatDelegate.getDefaultNightMode() == delegateNightMode && currentTheme != theme) {
-            recreate()
-        } else {
-            AppCompatDelegate.setDefaultNightMode(delegateNightMode)
-        }
-    }
-
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        when (newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_YES -> {
-                recreate()
-            }
-            Configuration.UI_MODE_NIGHT_NO -> {
-                recreate()
-            }
+        val uiMode = newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        if(uiMode == Configuration.UI_MODE_NIGHT_YES || uiMode == Configuration.UI_MODE_NIGHT_NO){
+            recreate()
         }
     }
 
     private fun initTheme() {
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            currentTheme = Theme.DARK
-            setTheme(R.style.DarkTheme)
-        } else {
-            currentTheme = Theme.LIGHT
-            setTheme(R.style.LightTheme)
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_UNSPECIFIED
+            || AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) {
+            initThemeFromSystem()
+            return
         }
+        initThemeBasedOnAppCompat()
+    }
+
+    private fun initThemeFromSystem() {
+        currentTheme = Theme.SYSTEM
+        val uiMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        setTheme(if (uiMode == Configuration.UI_MODE_NIGHT_YES) R.style.DarkTheme else R.style.LightTheme)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+    }
+
+    private fun initThemeBasedOnAppCompat() {
+        currentTheme = Theme.fromAppCompatDelegate(AppCompatDelegate.getDefaultNightMode())
+        setTheme(currentTheme.style)
     }
 }

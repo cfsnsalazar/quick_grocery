@@ -7,27 +7,30 @@
     <RelativeLayout
         android:id="@+id/rlDarkMode"
         android:layout_width="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:layout_height="72dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="?attr/colorPrimary"
-            android:layout_marginStart="16dp"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
             android:text="@string/settings_dark_mode" />
 
-        <Switch
-            android:id="@+id/swDarkMode"
-            android:enabled="false"
+        <Spinner
+            android:id="@+id/spDarkMode"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:minWidth="124dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"
-            android:thumbTint="?attr/switchColor"
-            android:trackTint="?attr/switchColor"
-            android:layout_centerVertical="true"/>
+            android:spinnerMode="dropdown"
+            android:background="?attr/spinnerBackground"
+            android:popupBackground="?attr/widgetBackground"
+            />
 
     </RelativeLayout>
 

@@ -1,24 +1,21 @@
 package com.example.quickgrocery.settings.fragment
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.quickgrocery.R
-import com.example.quickgrocery.common.PREFERENCE_KEY_THEME
 import com.example.quickgrocery.common.Theme
-import com.example.quickgrocery.common.application.QuickGroceryApplication
 import com.example.quickgrocery.common.di.QuickGroceryViewModelProvider
-import com.example.quickgrocery.common.di.SHARED_PREFERENCES_NAME
 import com.example.quickgrocery.common.fragment.BaseFragment
 import com.example.quickgrocery.settings.viewModel.SettingsFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
@@ -59,21 +56,24 @@ class SettingsFragment : BaseFragment<SettingsFragmentViewModel>() {
     }
 
     private fun initUI() {
-        val sharedPreferences = activity?.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
-        val themeName = sharedPreferences?.getString(
-            PREFERENCE_KEY_THEME,
-            null
-        ) ?: Theme.LIGHT.name
-        swDarkMode.isChecked = themeName == Theme.DARK.name
-        rlDarkMode.setOnClickListener {
-            swDarkMode.isChecked = !swDarkMode.isChecked
-        }
-        swDarkMode.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
-                fragmentListener.onThemeChanged(Theme.DARK)
-            }else{
-                fragmentListener.onThemeChanged(Theme.LIGHT)
-            }
+        val theme = Theme.fromAppCompatDelegate(
+            appCompatDelegateValue = AppCompatDelegate.getDefaultNightMode()
+        )
+        val spinnerAdapter = ArrayAdapter.createFromResource(
+            spDarkMode.context,
+            R.array.Themes,
+            R.layout.spinner_item_dark_mode
+        )
+        spDarkMode.adapter = spinnerAdapter
+        spDarkMode.setSelection(theme.ordinal)
+        spDarkMode.onItemSelectedListener = selectedListener
+    }
+
+    val selectedListener = object: AdapterView.OnItemSelectedListener{
+        override fun onNothingSelected(p0: AdapterView<*>?) = Unit
+
+        override fun onItemSelected(adapter: AdapterView<*>?, view: View?, position: Int, resource: Long) {
+            fragmentListener.onThemeChanged(Theme.values()[position])
         }
     }
 }
