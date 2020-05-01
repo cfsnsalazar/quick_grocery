@@ -8,11 +8,10 @@ import com.example.quickgrocery.R
 import com.example.quickgrocery.common.di.QuickGroceryViewModelProvider
 import com.example.quickgrocery.common.fragment.BaseFragment
 import com.example.quickgrocery.meals.viewModel.MealsFragmentViewModel
-import com.example.quickgrocery.shoppingList.fragment.ShoppingListFragment
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
-class MealsFragment : BaseFragment<MealsFragmentViewModel>() {
+class MealsFragment : BaseFragment() {
 
     companion object{
         fun newInstance(): MealsFragment {
@@ -20,9 +19,8 @@ class MealsFragment : BaseFragment<MealsFragmentViewModel>() {
         }
     }
 
-    override fun provideViewModel(): MealsFragmentViewModel? {
-        activity ?: return null
-        return QuickGroceryViewModelProvider(activity!!).get(MealsFragmentViewModel::class.java)
+    override val viewModel: MealsFragmentViewModel by lazy {
+        QuickGroceryViewModelProvider(activity!!).get(MealsFragmentViewModel::class.java)
     }
 
     override fun onCreateView(

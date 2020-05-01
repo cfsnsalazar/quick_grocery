@@ -9,19 +9,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
-abstract class BaseFragment<T : BaseViewModel> : Fragment() {
-    protected open val viewModel: T? by lazy {
-        provideViewModel()
-    }
-
-    abstract fun provideViewModel(): T?
+abstract class BaseFragment : Fragment() {
+    abstract val viewModel: BaseViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        viewModel?.let { baseViewModel ->
-            (activity?.applicationContext as? QuickGroceryApplication)?.appComponent?.inject(
-                baseViewModel
-            )
-        }
+        (activity?.applicationContext as? QuickGroceryApplication)?.appComponent?.inject(viewModel)
     }
 }

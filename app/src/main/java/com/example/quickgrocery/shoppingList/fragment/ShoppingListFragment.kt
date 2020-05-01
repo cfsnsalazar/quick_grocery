@@ -11,7 +11,7 @@ import com.example.quickgrocery.shoppingList.viewModel.ShoppingListFragmentViewM
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
-class ShoppingListFragment: BaseFragment<ShoppingListFragmentViewModel>() {
+class ShoppingListFragment: BaseFragment() {
 
     companion object{
         fun newInstance(): ShoppingListFragment{
@@ -19,9 +19,8 @@ class ShoppingListFragment: BaseFragment<ShoppingListFragmentViewModel>() {
         }
     }
 
-    override fun provideViewModel(): ShoppingListFragmentViewModel? {
-        activity ?: return null
-        return QuickGroceryViewModelProvider(activity!!).get(ShoppingListFragmentViewModel::class.java)
+    override val viewModel: ShoppingListFragmentViewModel by lazy {
+        QuickGroceryViewModelProvider(activity!!).get(ShoppingListFragmentViewModel::class.java)
     }
 
     override fun onCreateView(

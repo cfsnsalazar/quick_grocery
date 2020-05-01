@@ -19,7 +19,7 @@ import kotlinx.coroutines.FlowPreview
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class SettingsFragment : BaseFragment<SettingsFragmentViewModel>() {
+class SettingsFragment : BaseFragment() {
     companion object {
         fun newInstance(): SettingsFragment {
             return SettingsFragment()
@@ -32,9 +32,8 @@ class SettingsFragment : BaseFragment<SettingsFragmentViewModel>() {
 
     lateinit var fragmentListener: FragmentListener
 
-    override fun provideViewModel(): SettingsFragmentViewModel? {
-        activity ?: return null
-        return QuickGroceryViewModelProvider(activity!!).get(SettingsFragmentViewModel::class.java)
+    override val viewModel: SettingsFragmentViewModel by lazy {
+        QuickGroceryViewModelProvider(activity!!).get(SettingsFragmentViewModel::class.java)
     }
 
     override fun onAttach(context: Context) {
@@ -69,7 +68,7 @@ class SettingsFragment : BaseFragment<SettingsFragmentViewModel>() {
         spDarkMode.onItemSelectedListener = selectedListener
     }
 
-    val selectedListener = object: AdapterView.OnItemSelectedListener{
+    private val selectedListener = object: AdapterView.OnItemSelectedListener{
         override fun onNothingSelected(p0: AdapterView<*>?) = Unit
 
         override fun onItemSelected(adapter: AdapterView<*>?, view: View?, position: Int, resource: Long) {

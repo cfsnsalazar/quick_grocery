@@ -2,11 +2,7 @@ package com.example.quickgrocery.common.activity
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import com.example.quickgrocery.R
 import com.example.quickgrocery.common.fragment.BaseFragment
 import com.example.quickgrocery.meals.activity.MealsActivity
@@ -23,7 +19,7 @@ import kotlinx.coroutines.FlowPreview
 abstract class BaseAuthenticatedActivity: BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     abstract fun getMenuItem():Int
-    abstract fun getMainFragment(): BaseFragment<*>
+    abstract fun getMainFragment(): BaseFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

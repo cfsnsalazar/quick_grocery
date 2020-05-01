@@ -29,7 +29,7 @@ class SettingsActivity: BaseAuthenticatedActivity(), SettingsFragment.FragmentLi
         return R.id.nav_settings
     }
 
-    override fun getMainFragment(): BaseFragment<*> {
+    override fun getMainFragment(): BaseFragment {
         return SettingsFragment.newInstance()
     }
 

@@ -2,8 +2,6 @@ package com.example.quickgrocery.meals.activity
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import android.os.PersistableBundle
 import com.example.quickgrocery.R
 import com.example.quickgrocery.meals.viewModel.MealsActivityViewModel
 import com.example.quickgrocery.common.activity.BaseAuthenticatedActivity
@@ -30,7 +28,7 @@ class MealsActivity : BaseAuthenticatedActivity() {
         return R.id.nav_meal_schedule
     }
 
-    override fun getMainFragment(): BaseFragment<*> {
+    override fun getMainFragment(): BaseFragment {
        return MealsFragment.newInstance()
     }
 
