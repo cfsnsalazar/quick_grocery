@@ -1,4 +1,4 @@
-package com.example.quickgrocery.views
+package com.example.quickgrocery.common.views
 
 import android.content.Context
 import android.util.AttributeSet

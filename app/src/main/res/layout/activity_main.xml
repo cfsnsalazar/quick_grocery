@@ -5,7 +5,8 @@
     android:id="@+id/dlMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="?attr/mainBackground"
+    tools:context=".common.activity.BaseActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/ctAppToolbar" />
 
-        <com.example.quickgrocery.views.CustomToolbar
+        <com.example.quickgrocery.common.views.CustomToolbar
             android:id="@+id/ctAppToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,26 +26,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:layout_below="@id/ctAppToolbar"
-            android:background="@drawable/drop_shadow" />
-
     </RelativeLayout>
-
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nvMenu"
         android:layout_width="wrap_content"
-        app:headerLayout="@layout/drawer_header"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:itemBackground="@drawable/drawer_background"
-        app:itemTextColor="@color/drawer_selector_text"
-        app:itemIconTint="@color/drawer_selector_icon"
-        app:itemTextAppearance="?android:attr/textAppearanceMediumInverse"
         android:fitsSystemWindows="true"
+        app:itemIconPadding="16dp"
+        app:itemHorizontalPadding="32dp"
+        app:itemBackground="@drawable/drawer_background"
+        app:itemIconTint="?attr/drawerIconColor"
+        app:itemTextColor="?attr/drawerTextColor"
+        app:itemTextAppearance="?android:attr/textAppearanceMediumInverse"
+        android:background="?attr/widgetBackground"
+        app:headerLayout="@layout/drawer_header"
+        android:theme="@style/NavigationTheme"
         app:menu="@menu/drawer_view" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

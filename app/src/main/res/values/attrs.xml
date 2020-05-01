@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorPrimary" format="color"/>
+    <attr name="colorSecondary" format="color"/>
+    <attr name="mainBackground" format="color"/>
+    <attr name="widgetBackground" format="color"/>
+    <attr name="spinnerBackground" format="reference"/>
+    <attr name="rippleBackground" format="reference"/>
+    <attr name="drawerTextColor" format="reference"/>
+    <attr name="drawerIconColor" format="reference"/>
+    <attr name="switchColor" format="reference"/>
+    <attr name="colorAccent" format="color"/>
+</resources>
