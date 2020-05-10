@@ -6,11 +6,13 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [
-    AppModule::class
-])
+@Component(
+    modules = [
+        ApplicationModule::class
+    ]
+)
 
 @ExperimentalCoroutinesApi
-interface AppComponent {
+interface ApplicationComponent {
     fun inject(target: BaseViewModel)
 }

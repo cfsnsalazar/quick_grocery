@@ -20,7 +20,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (applicationContext as QuickGroceryApplication).appComponent.inject(viewModel)
+        (applicationContext as QuickGroceryApplication).applicationComponent.inject(viewModel)
         initTheme()
         initObservers()
     }
