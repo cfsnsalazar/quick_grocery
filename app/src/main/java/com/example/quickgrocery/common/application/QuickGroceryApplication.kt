@@ -1,22 +1,22 @@
 package com.example.quickgrocery.common.application
 
 import android.app.Application
-import com.example.quickgrocery.common.di.AppComponent
-import com.example.quickgrocery.common.di.AppModule
-import com.example.quickgrocery.common.di.DaggerAppComponent
+import com.example.quickgrocery.common.di.ApplicationComponent
+import com.example.quickgrocery.common.di.ApplicationModule
+import com.example.quickgrocery.common.di.DaggerApplicationComponent
 
 class QuickGroceryApplication : Application() {
-    lateinit var appComponent: AppComponent
+    lateinit var applicationComponent: ApplicationComponent
 
-    private fun initDagger(app: QuickGroceryApplication): AppComponent {
-        return DaggerAppComponent
+    private fun initDagger(app: QuickGroceryApplication): ApplicationComponent {
+        return DaggerApplicationComponent
             .builder()
-            .appModule(AppModule(app))
+            .applicationModule(ApplicationModule(app))
             .build()
     }
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = initDagger(this)
+        applicationComponent = initDagger(this)
     }
 }

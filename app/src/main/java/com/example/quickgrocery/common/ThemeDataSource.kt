@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.asFlow
 const val PREFERENCE_KEY_THEME = "preference_key_theme"
 
 @ExperimentalCoroutinesApi
-class ThemeDataSource(
+open class ThemeDataSource(
     private val sharedPreferences: SharedPreferences
 ) {
 
@@ -26,7 +26,7 @@ class ThemeDataSource(
     }
 
     @FlowPreview
-    fun getTheme(): Flow<Theme> {
+    open fun getTheme(): Flow<Theme> {
         return themeChannel.asFlow()
     }
 
