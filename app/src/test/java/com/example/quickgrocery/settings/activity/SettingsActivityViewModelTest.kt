@@ -7,7 +7,7 @@ import kotlinx.coroutines.FlowPreview
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-class SettingsActivityViewModelTest: BaseViewModelTest() {
+class SettingsActivityViewModelTest : BaseViewModelTest() {
     override val viewModel: SettingsActivityViewModel by lazy {
         SettingsActivityViewModel()
     }

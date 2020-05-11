@@ -16,9 +16,9 @@ import kotlinx.coroutines.FlowPreview
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-abstract class BaseAuthenticatedActivity: BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+abstract class BaseAuthenticatedActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    abstract fun getMenuItem():Int
+    abstract fun getMenuItem(): Int
     abstract fun getMainFragment(): BaseFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,15 +49,15 @@ abstract class BaseAuthenticatedActivity: BaseActivity(), NavigationView.OnNavig
         when (item.itemId) {
             R.id.nav_meal_schedule -> {
                 startActivity(MealsActivity.getBaseIntent(this))
-                overridePendingTransition(0,0)
+                overridePendingTransition(0, 0)
             }
             R.id.nav_shopping_list -> {
                 startActivity(ShoppingListActivity.getBaseIntent(this))
-                overridePendingTransition(0,0)
+                overridePendingTransition(0, 0)
             }
             R.id.nav_settings -> {
                 startActivity(SettingsActivity.getBaseIntent(this))
-                overridePendingTransition(0,0)
+                overridePendingTransition(0, 0)
             }
         }
         nvMenu.setCheckedItem(item.itemId)

@@ -3,14 +3,11 @@ package com.example.quickgrocery.common.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
-import com.example.quickgrocery.common.Theme
 import com.example.quickgrocery.common.ThemeDataSource
 import dagger.Module
 import dagger.Provides
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 const val SHARED_PREFERENCES_NAME = "QuickGrocerySharedPreference"
 
@@ -29,7 +26,7 @@ open class ApplicationModule(private val app: Application) {
     @ExperimentalCoroutinesApi
     @Provides
     @Singleton
-    open fun provideThemeDataSource(sharedPreferences: SharedPreferences): ThemeDataSource{
+    open fun provideThemeDataSource(sharedPreferences: SharedPreferences): ThemeDataSource {
         return ThemeDataSource(sharedPreferences)
     }
 }

@@ -6,9 +6,8 @@ import com.example.quickgrocery.common.di.ApplicationModule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.mockito.Mockito
 
-
 @ExperimentalCoroutinesApi
-class TestApplicationModule(app: Application): ApplicationModule(app) {
+class TestApplicationModule(app: Application) : ApplicationModule(app) {
 
     override fun provideContext(): Context {
         return Mockito.mock(Context::class.java)

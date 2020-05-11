@@ -7,7 +7,7 @@ import kotlinx.coroutines.FlowPreview
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class ShoppingListActivityViewModelTest: BaseViewModelTest() {
+class ShoppingListActivityViewModelTest : BaseViewModelTest() {
     override val viewModel: ShoppingListActivityViewModel by lazy {
         ShoppingListActivityViewModel()
     }

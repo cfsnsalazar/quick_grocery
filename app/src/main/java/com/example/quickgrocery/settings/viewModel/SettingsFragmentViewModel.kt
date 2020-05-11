@@ -4,5 +4,4 @@ import com.example.quickgrocery.common.viewModel.BaseViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
-class SettingsFragmentViewModel: BaseViewModel() {
-}
+class SettingsFragmentViewModel : BaseViewModel()

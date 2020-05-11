@@ -2,8 +2,8 @@ package com.example.quickgrocery.common.di
 
 import com.example.quickgrocery.common.viewModel.BaseViewModel
 import dagger.Component
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @Singleton
 @Component(

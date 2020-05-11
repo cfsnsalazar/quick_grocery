@@ -46,7 +46,7 @@ class SettingsFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_settings, null);
+        return inflater.inflate(R.layout.fragment_settings, null)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -68,7 +68,7 @@ class SettingsFragment : BaseFragment() {
         spDarkMode.onItemSelectedListener = selectedListener
     }
 
-    private val selectedListener = object: AdapterView.OnItemSelectedListener{
+    private val selectedListener = object : AdapterView.OnItemSelectedListener {
         override fun onNothingSelected(p0: AdapterView<*>?) = Unit
 
         override fun onItemSelected(adapter: AdapterView<*>?, view: View?, position: Int, resource: Long) {

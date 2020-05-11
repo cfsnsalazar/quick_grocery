@@ -13,7 +13,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @ExperimentalCoroutinesApi
 class MealsFragment : BaseFragment() {
 
-    companion object{
+    companion object {
         fun newInstance(): MealsFragment {
             return MealsFragment()
         }
@@ -28,6 +28,6 @@ class MealsFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_meals, null);
+        return inflater.inflate(R.layout.fragment_meals, null)
     }
 }

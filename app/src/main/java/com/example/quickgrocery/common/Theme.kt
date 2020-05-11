@@ -9,9 +9,9 @@ enum class Theme(val appCompatDelegateValue: Int, val style: Int, val stringReso
     DARK(AppCompatDelegate.MODE_NIGHT_YES, R.style.DarkTheme, R.string.theme_dark);
 
     companion object {
-        fun fromAppCompatDelegate(appCompatDelegateValue: Int): Theme{
+        fun fromAppCompatDelegate(appCompatDelegateValue: Int): Theme {
             values().forEach { theme ->
-                if(theme.appCompatDelegateValue == appCompatDelegateValue){
+                if (theme.appCompatDelegateValue == appCompatDelegateValue) {
                     return theme
                 }
             }
