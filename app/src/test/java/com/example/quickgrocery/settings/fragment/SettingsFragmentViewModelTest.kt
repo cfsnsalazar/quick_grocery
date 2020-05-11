@@ -7,7 +7,7 @@ import kotlinx.coroutines.FlowPreview
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-class SettingsFragmentViewModelTest: BaseViewModelTest() {
+class SettingsFragmentViewModelTest : BaseViewModelTest() {
     override val viewModel: SettingsFragmentViewModel by lazy {
         SettingsFragmentViewModel()
     }

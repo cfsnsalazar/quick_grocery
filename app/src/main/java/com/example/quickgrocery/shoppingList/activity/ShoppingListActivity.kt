@@ -3,7 +3,6 @@ package com.example.quickgrocery.shoppingList.activity
 import android.content.Context
 import android.content.Intent
 import com.example.quickgrocery.R
-import com.example.quickgrocery.meals.viewModel.MealsActivityViewModel
 import com.example.quickgrocery.common.activity.BaseAuthenticatedActivity
 import com.example.quickgrocery.common.di.QuickGroceryViewModelProvider
 import com.example.quickgrocery.common.fragment.BaseFragment

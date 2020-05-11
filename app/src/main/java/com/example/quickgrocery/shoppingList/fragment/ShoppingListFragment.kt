@@ -11,10 +11,10 @@ import com.example.quickgrocery.shoppingList.viewModel.ShoppingListFragmentViewM
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
-class ShoppingListFragment: BaseFragment() {
+class ShoppingListFragment : BaseFragment() {
 
-    companion object{
-        fun newInstance(): ShoppingListFragment{
+    companion object {
+        fun newInstance(): ShoppingListFragment {
             return ShoppingListFragment()
         }
     }
@@ -28,6 +28,6 @@ class ShoppingListFragment: BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_shopping_list, null);
+        return inflater.inflate(R.layout.fragment_shopping_list, null)
     }
 }

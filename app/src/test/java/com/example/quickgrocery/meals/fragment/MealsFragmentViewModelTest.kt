@@ -7,7 +7,7 @@ import kotlinx.coroutines.FlowPreview
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class MealsFragmentViewModelTest: BaseViewModelTest() {
+class MealsFragmentViewModelTest : BaseViewModelTest() {
     override val viewModel: MealsFragmentViewModel by lazy {
         MealsFragmentViewModel()
     }

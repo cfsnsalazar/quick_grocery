@@ -1,12 +1,11 @@
 import com.example.quickgrocery.common.BaseViewModelTest
 import com.example.quickgrocery.common.di.ApplicationComponent
 import com.example.quickgrocery.common.di.ApplicationModule
-import com.example.quickgrocery.common.viewModel.BaseViewModel
 import com.example.quickgrocery.meals.activity.MealsActivityViewModelTest
 import dagger.Component
+import javax.inject.Singleton
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import javax.inject.Singleton
 
 @Singleton
 @Component(
@@ -16,7 +15,7 @@ import javax.inject.Singleton
 )
 
 @ExperimentalCoroutinesApi
-interface TestApplicationComponent: ApplicationComponent {
+interface TestApplicationComponent : ApplicationComponent {
     @FlowPreview
     fun inject(viewModelTest: MealsActivityViewModelTest)
     fun inject(viewModelTest: BaseViewModelTest)

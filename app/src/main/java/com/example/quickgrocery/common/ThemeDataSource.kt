@@ -1,7 +1,6 @@
 package com.example.quickgrocery.common
 
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
@@ -30,7 +29,7 @@ open class ThemeDataSource(
         return themeChannel.asFlow()
     }
 
-    fun setTheme(theme: Theme){
+    fun setTheme(theme: Theme) {
         sharedPreferences
             .edit()
             .putString(PREFERENCE_KEY_THEME, theme.name)

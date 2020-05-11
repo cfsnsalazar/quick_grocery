@@ -2,7 +2,6 @@ package com.example.quickgrocery.settings.activity
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatDelegate
 import com.example.quickgrocery.R
 import com.example.quickgrocery.common.Theme
 import com.example.quickgrocery.common.activity.BaseAuthenticatedActivity
@@ -16,7 +15,7 @@ import kotlinx.coroutines.FlowPreview
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class SettingsActivity: BaseAuthenticatedActivity(), SettingsFragment.FragmentListener {
+class SettingsActivity : BaseAuthenticatedActivity(), SettingsFragment.FragmentListener {
     companion object {
         fun getBaseIntent(caller: Context): Intent {
             return Intent(caller, SettingsActivity::class.java).apply {
