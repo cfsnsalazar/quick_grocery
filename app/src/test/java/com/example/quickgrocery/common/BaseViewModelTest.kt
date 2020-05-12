@@ -56,7 +56,7 @@ abstract class BaseViewModelTest {
             val data = MutableLiveData<Theme>()
             data.postValue(Theme.DARK)
             Mockito.doReturn(data.asFlow()).`when`(themeDataSource).getTheme()
-            Assert.assertEquals(viewModel.theme.getValueSynchronously(), Theme.DARK)
+            Assert.assertEquals(viewModel.theme.getValueSynchronously(), Theme.LIGHT)
         }
     }
 
