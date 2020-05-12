@@ -7,9 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asFlow
 import com.example.quickgrocery.common.viewModel.BaseViewModel
 import javax.inject.Inject
-import junit.framework.Assert
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
