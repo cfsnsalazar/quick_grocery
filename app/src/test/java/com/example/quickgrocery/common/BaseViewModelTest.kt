@@ -69,4 +69,12 @@ abstract class BaseViewModelTest {
             Assert.assertEquals(viewModel.theme.getValueSynchronously(), Theme.LIGHT)
         }
     }
+
+    @Test
+    fun appTheme_shouldBeSet() {
+        testCoroutineRule.runBlockingTest {
+            viewModel.setTheme(theme = Theme.DARK)
+            Mockito.verify(themeDataSource).setTheme(Theme.DARK)
+        }
+    }
 }

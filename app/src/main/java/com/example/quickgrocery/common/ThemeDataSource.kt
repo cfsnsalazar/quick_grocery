@@ -29,7 +29,7 @@ open class ThemeDataSource(
         return themeChannel.asFlow()
     }
 
-    fun setTheme(theme: Theme) {
+    open fun setTheme(theme: Theme) {
         sharedPreferences
             .edit()
             .putString(PREFERENCE_KEY_THEME, theme.name)
