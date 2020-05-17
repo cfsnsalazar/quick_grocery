@@ -27,7 +27,7 @@ abstract class BaseViewModelTest {
     @get: Rule
     val testCoroutineRule = TestCoroutineRule()
     @Inject
-           lateinit var themeDataSource: ThemeDataSource
+    lateinit var themeDataSource: ThemeDataSource
     abstract val viewModel: BaseViewModel
 
     @Before()
