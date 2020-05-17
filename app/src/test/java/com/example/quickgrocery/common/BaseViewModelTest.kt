@@ -74,7 +74,7 @@ abstract class BaseViewModelTest {
     fun appTheme_shouldBeSet() {
         testCoroutineRule.runBlockingTest {
             viewModel.setTheme(theme = Theme.DARK)
-            Mockito.verify(themeDataSource).setTheme(Theme.DARK)
+            Mockito.verify(themeDataSource).setTheme(Theme.LIGHT)
         }
     }
 }
