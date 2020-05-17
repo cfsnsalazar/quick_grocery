@@ -9,5 +9,7 @@
     <attr name="drawerTextColor" format="reference"/>
     <attr name="drawerIconColor" format="reference"/>
     <attr name="switchColor" format="reference"/>
+    <attr name="splashLogo" format="reference"/>
+    <attr name="poweredByLogo" format="reference"/>
     <attr name="colorAccent" format="color"/>
 </resources>

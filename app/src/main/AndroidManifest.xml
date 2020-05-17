@@ -12,15 +12,19 @@
       android:theme="@style/LightTheme">
     <activity android:name=".meals.activity.MealsActivity"
         android:configChanges="uiMode">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
     </activity>
     <activity android:name=".shoppingList.activity.ShoppingListActivity"
         android:configChanges="uiMode"/>
     <activity android:name=".settings.activity.SettingsActivity"
         android:configChanges="uiMode"/>
+    <activity
+        android:name=".common.activity.PreloadActivity"
+        android:configChanges="uiMode">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
   </application>
 
 </manifest>
