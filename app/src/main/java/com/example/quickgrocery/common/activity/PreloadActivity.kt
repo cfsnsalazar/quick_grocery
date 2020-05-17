@@ -9,7 +9,7 @@ import kotlinx.coroutines.FlowPreview
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-class PreloadActivity: BaseActivity() {
+class PreloadActivity : BaseActivity() {
     override val viewModel: PreloadViewModel
         get() = QuickGroceryViewModelProvider(this).get(PreloadViewModel::class.java)
 
